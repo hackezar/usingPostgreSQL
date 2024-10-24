@@ -1,0 +1,31 @@
+<!-- views/newUserForm.ejs -->
+<!DOCTYPE html>
+<html>
+   <head>
+       <title><%= title %></title>
+   </head>
+   <body>
+       <h1><%= title %></h1>
+       <div>
+        <form action="/search" method="GET" style="display: inline";>
+            <input type="text" name="input" id="input">
+            <button type="submit">Search</button>
+        </form>
+    </div> 
+    <div>
+        <ul class="userList">
+            <% if (locals.usernames) {%>
+            <% usernames.forEach(user => { %>
+                <li class="userItem">
+                    <p>ID: <%= user.id %></p>
+                    <p>Username: <%= user.username %></p>
+                </li>
+            <% }); %>
+            <% } %>
+        </ul>
+    </div>
+    <div class="deleteDiv">
+        <button type="button"><a href="/delete">Delete All Users</a></button>
+    </div>
+   </body>
+</html>

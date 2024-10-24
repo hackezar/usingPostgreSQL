@@ -1,7 +1,12 @@
 // app.js
 const express = require('express')
 const app = express();
-const usersRouter = require('./routs/usersRouter');
+const usersRouter = require('./routes/usersRouter');
+CONNECTION_STRING=`postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DATABASE}`;
+
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(CONNECTION_STRING);
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
